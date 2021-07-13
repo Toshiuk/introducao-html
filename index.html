@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Introdução</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <p id="myTxt" class="text">Valor 0</p>
+            <p id="myTxt2" class="text">Soma 0</p>
+            <button id="myBtn" class="btn" >Adiciona</button>
+            <button id="myBtn2" onclick="handleClickBtn2()" class="btn">Soma</button>
+        </div>
+    </body>
+
+    <script>
+        let valor = 0;
+        let soma = 0;
+
+        const handleClickBtn = () => {
+            // Esses 3 são iguais
+            // valor = valor + 1;
+            // valor += 1;
+            valor++;
+
+            document.getElementById("myTxt").innerText = `Valor ${valor}`;
+        }
+
+        document.getElementById("myBtn").addEventListener("click", handleClickBtn);
+
+
+        const handleClickBtn2 = () => {
+            soma += valor;
+            valor = 0;
+
+            document.getElementById("myTxt").innerText = `Valor ${valor}`;
+            document.getElementById("myTxt2").innerText = `Soma ${soma}`;
+        }
+        // Direto na tag button
+        // document.getElementById("myBtn2").addEventListener("click", handleClickBtn2);
+    </script>
+
+    <style>
+
+        body{
+            margin: 0;
+            background: cadetblue;
+        }
+
+        .wrap{
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: space-evenly;
+        }
+
+        .btn{
+            background: black;
+            color: white;
+            font-size: 20px;
+            border: 2px solid violet;
+            padding: 18px 36px;
+            border-radius: 16px;
+            box-shadow: inset 0 0 0 0 violet;
+            cursor: pointer;
+            transition: ease-out 0.4s;
+        }
+
+        .btn:hover{
+            box-shadow: inset 0 100px 0 0 violet;
+        }
+
+        .text{
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+
+</html>
